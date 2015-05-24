@@ -114,54 +114,20 @@ The following keymaps are not included and are suggested for deprecation. Note t
 
 Note that the other mappings (<C-j>, <C-k>, etc.) are still available.
 
-##### Open .vimrc file in new tab. Think Command + , [Preferences...] but with Shift.
-* map <D-<>       :tabedit ~/.vimrc<CR>
-
 ##### Reload .vimrc
 * map <leader>rv  :source ~/.vimrc<CR>
-
-##### Undo/redo - Doesn't MacVim already have this?
-* map <D-z>       :earlier 1<CR>
-* map <D-Z>       :later 1<CR>
 
 ##### Auto-indent whole file
 map <silent> <F7> gg=G`` :delmarks z<CR>:echo "Reformatted."<CR>
 
 Note that <leader>= is still available.
 
-##### Jump to a new line in insert mode
-* imap <D-CR>     <Esc>o
-
 ##### Fast scrolling
 * nnoremap <C-e>  3<C-e>
 * nnoremap <C-y>  3<C-y>
 
-##### Previous/next quickfix file listings (e.g. search results)
-* map <M-D-Down>  :cn<CR>
-* map <M-D-Up>    :cp<CR>
-
-##### Previous/next buffers
-* map <M-D-Left>  :bp<CR>
-* map <M-D-Right> :bn<CR>
-
 ##### Git blame
 * map <leader>g   :Gblame<CR>
-
-##### Comment/uncomment lines
-* map <D-/>       <plug>NERDCommenterToggle
-* imap <D-/>      <Esc><plug>NERDCommenterToggle i
-
-Note that <leader>/ is still available.
-
-##### In command-line mode, <C-A> should go to the front of the line, as in bash.
-* cmap <C-A> <C-B>
-
-There is no need for this mapping since this is the default in terminal vim.
-
-##### Copy current file path to system pasteboard
-* map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
-
-Note that <leader>C is still available for this functionality.
 
 ##### Run tests
 * map <leader>tt :wa<CR>:RunTestAgain<CR>
@@ -175,12 +141,6 @@ Note that <leader>C is still available for this functionality.
 * imap <F9> <ESC><F9>
 
 Note that <leader>t (run a focused test) and <leader>T (run the test file) are still available, but use the "testify" plugin, which will run the tests using vim-dispatch and put the results in the quickfix window for easy navigation. <cr><cr> is also an alias for <leader>T. Since the "testify" plugin keeps track of the last test that was ran, the "RunTestAgain" and "RunTestPrevious" are no longer needed.
-
-##### Disable middle mouse button, F1
-* map <MiddleMouse>   <Nop>
-* imap <MiddleMouse>  <Nop>
-* map <F1>            <Nop>
-* imap <F1>           <Nop>
 
 ##### Easy access to the shell
 * map <Leader><Leader> :!
@@ -221,10 +181,7 @@ The CtrlP plugin already has mappings for these. From within the CtrlP window us
 * map <leader>jF :CtrlP factories<CR>
 * map <leader>jT :CtrlP test<CR>
 
-These seem like they be be useful, but I'm not sure how often they're actually used.
-
-##### Cmd-Shift-(M)ethod - jump to a method (tag in current file)
-* nnoremap <silent> <D-M> :CtrlPBufTag<CR>
+These seem like they may be useful, but I'm not sure how often they're actually used.
 
 ##### Mappings inherited from FuzzyFinder
 * map <leader><C-N> :CtrlPCurWD<CR>
@@ -238,9 +195,6 @@ These seem like they be be useful, but I'm not sure how often they're actually u
 * nmap <leader>l :TagbarToggle<CR>
 
 This has been remapped to <F-8>.
-
-##### Cmd-Shift-F searches the whole project (like in TextMate, RubyMine, etc.)
-* map <D-F> :Ag<Space>
 
 ##### YankRing show registers
 * :nnoremap <silent> <F6> :YRShow<CR>

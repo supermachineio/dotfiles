@@ -72,14 +72,14 @@ The following new keymaps have been added.
 
 Keymap | Description
 ---|---
-`nnoremap <Leader><Leader> <c-^>`            | Quickly switch to alternate file
-`cnoremap %% <C-R>=expand('%:h').'/'<cr>`    | Expand %% to current open buffer directory
-`map <leader>e :edit %%`                     | Quickly edit a file in the current buffer's directory
-`map <leader>v :view %%`                     | Quickly view a file in the current buffer's directory
-nnoremap Q @q                                | Apply macros w/ Q
-vnoremap Q :norm @q<cr>                      |
-`map <F9> :StarscopeUpdate<cr>`              | Regenerate ctags and cscope.out using starscope gem
-`nmap <CR><CR> :wa <bar> TestifyRunFile<CR>` | Run test file
+`nnoremap <Leader><Leader> <c-^>`             | Quickly switch to alternate file
+`cnoremap %% <C-R>=expand('%:h').'/'<cr>`     | Expand %% to current open buffer directory
+`map <leader>e :edit %%`                      | Quickly edit a file in the current buffer's directory
+`map <leader>v :view %%`                      | Quickly view a file in the current buffer's directory
+`nnoremap Q @q`                               | Apply macros w/ Q
+`vnoremap Q :norm @q<cr>`                     |
+`map <F9> :StarscopeUpdate<cr>`               | Regenerate ctags and cscope.out using starscope gem
+`nmap <CR><CR> :wa <bar> TestifyRunFile<CR>`  | Run test file
 
 #### Deprecated Keymaps
 The following keymaps were not included and are suggested for deprecation.
@@ -98,7 +98,6 @@ Keymap | Description
 `nnoremap <C-e>  3<C-e>`                                              | Fast scrolling
 `nnoremap <C-y>  3<C-y>`                                              |
 `map <leader>g   :Gblame<CR>`                                         | Git blame
-
 `map <leader>tt :wa<CR>:RunTestAgain<CR>`                             | Run tests. Note that <leader>t (run a focused test) and <leader>T (run the test file) are still available, but use the "testify" plugin, which will run the tests using vim-dispatch and put the results in the quickfix window for easy navigation. <cr><cr> is also an alias for <leader>T. Since the "testify" plugin keeps track of the last test that was ran, the "RunTestAgain" and "RunTestPrevious" are no longer needed.
 `map <F12> :write<CR>:RunTest<CR>`                                    |
 `imap <F12> <ESC><F12>`                                               |

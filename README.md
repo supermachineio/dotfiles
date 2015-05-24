@@ -89,16 +89,16 @@ Keymap | Description
 `nmap <leader>s  :%s/`                                                | Search
 `vmap <leader>s  :s/`                                                 |
 `map <leader>v   :vsp<CR>`                                            | Split screen
-`map <leader>w   ^Ww`                                                 | Move between screens. Note that the other mappings (<C-j>, <C-k>, etc.) are still available.
+`map <leader>w   ^Ww`                                                 | Move between screens. Note that the other mappings (`<C-j>`, `<C-k>`, etc.) are still available.
 `map <leader>=   ^W=`                                                 |
 `map <leader>j   ^Wj`                                                 |
 `map <leader>k   ^Wk`                                                 |
 `map <leader>rv  :source ~/.vimrc<CR>`                                | Reload .vimrc
-`map <silent> <F7> gg=G`` :delmarks z<CR>:echo "Reformatted."<CR>`    | Auto-indent whole file. Note that <leader>= is still available.
+`map <silent> <F7> gg=G`` :delmarks z<CR>:echo "Reformatted."<CR>`    | Auto-indent whole file. Note that `<leader>=` is still available.
 `nnoremap <C-e>  3<C-e>`                                              | Fast scrolling
 `nnoremap <C-y>  3<C-y>`                                              |
 `map <leader>g   :Gblame<CR>`                                         | Git blame
-`map <leader>tt :wa<CR>:RunTestAgain<CR>`                             | Run tests. Note that <leader>t (run a focused test) and <leader>T (run the test file) are still available, but use the "testify" plugin, which will run the tests using vim-dispatch and put the results in the quickfix window for easy navigation. <cr><cr> is also an alias for <leader>T. Since the "testify" plugin keeps track of the last test that was ran, the "RunTestAgain" and "RunTestPrevious" are no longer needed.
+`map <leader>tt :wa<CR>:RunTestAgain<CR>`                             | Run tests. Note that `<leader>t` (run a focused test) and `<leader>T` (run the test file) are still available, but use the "testify" plugin, which will run the tests using vim-dispatch and put the results in the quickfix window for easy navigation. `<cr><cr>` is also an alias for `<leader>T`. Since the "testify" plugin keeps track of the last test that was ran, the `RunTestAgain` and `RunTestPrevious` are no longer needed.
 `map <F12> :write<CR>:RunTest<CR>`                                    |
 `imap <F12> <ESC><F12>`                                               |
 `map <F11> :write<CR>:RunTestLine<CR>`                                |
@@ -112,7 +112,7 @@ Keymap | Description
 `vmap <leader>a :call AckVisual()<CR>`                                |
 `nmap du :diffupdate<CR>`                                             | Recalculate diff when it gets messed up.
 `map <leader>u :GundoToggle<CR>`                                      | Gundo.vim
-`nnoremap <silent> <leader>F :CtrlPClearAllCaches<CR>:CtrlPCurWD<CR>` | The CtrlP plugin already has mappings for these. From within the CtrlP window use <c-f> and <c-b> for switching between file, MRU and buffer modes. <F5> will refresh the cache when the CtrlP window is open.
+`nnoremap <silent> <leader>F :CtrlPClearAllCaches<CR>:CtrlPCurWD<CR>` | The CtrlP plugin already has mappings for these. From within the CtrlP window use `<c-f>` and `<c-b>` for switching between file, MRU and buffer modes. `<F5>` will refresh the cache when the CtrlP window is open.
 `nnoremap <silent> <leader>bb :CtrlPBuffer<cr>`                       |
 `map <D-e> :CtrlPBuffer<CR>`                                          |
 `nnoremap <silent> <C-p> :CtrlPMRU<cr>`                               |
@@ -134,6 +134,6 @@ Keymap | Description
 `map <leader>n :CtrlPCurWD<CR>`                                       |
 `map <D-N> :CtrlPCurWD<CR>`                                           |
 `map <silent> <F19>WriteAll :silent! wall<CR>`                        | Write all
-`nmap <leader>l :TagbarToggle<CR>`                                    | This has been remapped to <F-8>.
+`nmap <leader>l :TagbarToggle<CR>`                                    | This has been remapped to `<F8>`.
 `:nnoremap <silent> <F6> :YRShow<CR>`                                 | YankRing show registers
 `nmap <leader>ld <Plug>LocalMakelet`                                  | Convert a word to to let(:word) { double(:word) }

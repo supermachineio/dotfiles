@@ -147,6 +147,9 @@ let g:solarized_contrast="high"
 let g:syntastic_enable_signs=1
 
 let g:testify_launcher = "Dispatch"
+let g:testify_runners = {
+            \ 'cucumber': 'zeus cucumber ',
+            \ 'rspec': 'zeus rspec ' }
 
 "#############################################################################
 " Keymaps

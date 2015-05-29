@@ -172,6 +172,9 @@ map \ :NERDTreeToggle<CR>
 " File tree browser showing current file - pipe (shift-backslash)
 map \| :NERDTreeFind<CR>
 
+" Search using Ag
+nnoremap <Leader>a :Ag<SPACE>
+
 " Open and close the quickfix window
 map <leader>qo :copen<CR>
 map <leader>qc :cclose<CR>

@@ -129,7 +129,6 @@ let maplocalleader = ";"
 "#############################################################################
 let g:airline_powerline_fonts = 1
 
-let g:ctrlp_map = '<leader>f'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:ctrlp_user_command = {
     \ 'types': {
@@ -174,6 +173,9 @@ map \| :NERDTreeFind<CR>
 
 " Search using Ag
 nnoremap <Leader>a :Ag<SPACE>
+
+" Ctrl-P Mapping
+nnoremap <Leader>f :CtrlP<cr>
 
 " Open and close the quickfix window
 map <leader>qo :copen<CR>

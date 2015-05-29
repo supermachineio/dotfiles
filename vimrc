@@ -103,6 +103,7 @@ set textwidth=79                                " Text width for line wrapping
 set wildmenu                                    " Autocomplete filenames
 set wildmode=list:longest,full                  " Show completions as list with longest match then full matches
 set wildignore+=tags                            " Ignore certain files/folders when globbing
+set wildignore+=cscope.out
 set wildignore+=tmp/**
 set wildignore+=public/uploads/**
 set wildignore+=public/images/**

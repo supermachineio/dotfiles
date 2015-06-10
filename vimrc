@@ -234,6 +234,10 @@ map <F8> :TagbarToggle<CR>
 " Regenerate ctags and cscope.out using starscope gem
 map <F9> :StarscopeUpdate<cr>
 
+" Map ,g to Gblame
+map <leader>g :Gblame<CR>
+
+
 "#############################################################################
 " Autocommands
 "#############################################################################

@@ -99,7 +99,7 @@ set swapfile                                    " Keep swapfiles
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set t_Co=256                                    " Use 256 colors
-set textwidth=79                                " Text width for line wrapping
+set textwidth=0                                 " Do not break lines
 set wildmenu                                    " Autocomplete filenames
 set wildmode=list:longest,full                  " Show completions as list with longest match then full matches
 set wildignore+=tags                            " Ignore certain files/folders when globbing

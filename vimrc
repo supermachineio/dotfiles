@@ -94,7 +94,7 @@ set ruler                                       " Show line and column number of
 set scrolloff=3                                 " Always show 3 lines around cursor
 set showmatch                                   " Show matching braces
 set smartcase                                   " Turn case sensitive search back on in certain cases
-set sw=4 sts=4 ts=4                             " 4 spaces
+set sw=2 sts=2 ts=2                             " 2 spaces
 set swapfile                                    " Keep swapfiles
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp

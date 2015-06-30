@@ -3,4 +3,4 @@ if exists('g:loaded_alternative')
 endif
 let g:loaded_alternative = 1
 
-command! -nargs=0 Alternative call alternative#Alternative()
+command! -nargs=0 Alternative call alternative#Run()

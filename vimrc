@@ -238,7 +238,7 @@ map <F9> :StarscopeUpdate<cr>
 map <leader>g :Gblame<CR>
 
 " Call the 'alternative' script
-nnoremap <Leader>A :call Alternative()<CR>
+nnoremap <Leader>A :Alternative()<CR>
 
 "#############################################################################
 " Autocommands

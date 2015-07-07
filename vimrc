@@ -240,6 +240,12 @@ map <leader>g :Gblame<CR>
 " Call the 'alternative' script
 nnoremap <Leader>A :Alternative<CR>
 
+"Copy yml key under the cursor"
+nnoremap <Leader>k :call YMLToKey()<CR>
+function YMLToKey()
+  execute '!~/Dropbox/developer_stuff/bin/yml_to_key key ' . expand('%:p') . ":" . line(".") . ' | xargs echo -n | pbcopy'
+endfunction
+
 "#############################################################################
 " Autocommands
 "#############################################################################

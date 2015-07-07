@@ -63,6 +63,7 @@ Plugin 'tpope/vim-repeat'                           " Enable repeating supported
 Plugin 'tpope/vim-surround'                         " makes working w/ quotes, braces,etc. easier
 Plugin 'tpope/vim-unimpaired'                       " pairs of handy bracket mappings
 Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this is latest and greatest
+Plugin 'vim-scripts/regreplop.vim'                  " operator to replace motion/visual with a register
 Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
 
 call vundle#end()

@@ -172,7 +172,7 @@ map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
 
 " Search using Ag
-nnoremap <Leader>a :Ag<SPACE>
+noremap ,a :Ag<CR>
 
 " Ctrl-P Mapping
 nnoremap <Leader>f :CtrlP<cr>
@@ -209,6 +209,9 @@ nmap <leader>=  gg=G``
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+" Map ,s to search and replace"
+noremap <leader>s :%s/
 
 " Make it easier to switch between windows
 nnoremap <C-h> <C-w>h

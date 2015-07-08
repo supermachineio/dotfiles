@@ -108,7 +108,7 @@ set wildignore+=tmp/**
 set wildignore+=public/uploads/**
 set wildignore+=public/images/**
 set wildignore+=vendor/**
-set wrap                                        " Turn on line wrapping
+set nowrap                                        " Turn off line wrapping
 
 "#############################################################################
 " Misc

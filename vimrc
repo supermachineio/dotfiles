@@ -217,6 +217,9 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>""
 " Quickly switch to alternate file
 nnoremap <Leader><Leader> <c-^>
 
+" Open Fugitive status
+nnoremap <Leader>g :Gstatus<CR>
+
 " Auto-indent whole file
 nmap <leader>=  gg=G``
 

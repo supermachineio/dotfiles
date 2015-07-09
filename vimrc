@@ -177,6 +177,9 @@ noremap ,a :Ag<CR>
 " Ctrl-P Mapping
 nnoremap <Leader>f :CtrlP<cr>
 
+" Open Fugitive status buffer
+nnoremap <Leader>g :Gstatus<CR>
+
 " Open and close the quickfix window
 map <leader>qo :copen<CR>
 map <leader>qc :cclose<CR>

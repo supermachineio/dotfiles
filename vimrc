@@ -177,6 +177,9 @@ noremap ,a :Ag<CR>
 " Ctrl-P Mapping
 nnoremap <Leader>f :CtrlP<cr>
 
+" split pane shortcut
+nnoremap <Leader>v :vs<cr>
+
 " Open Fugitive status buffer
 nnoremap <Leader>g :Gstatus<CR>
 
@@ -208,10 +211,9 @@ nnoremap <Leader><Leader> <c-^>
 " Auto-indent whole file
 nmap <leader>=  gg=G``
 
-" Map ,e and ,v to open files in the same directory as the current file
+" Map ,e and to open files in the same directory as the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
-map <leader>v :view %%
 
 " Map ,s to search and replace"
 noremap <leader>s :%s/

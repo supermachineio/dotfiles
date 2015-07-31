@@ -82,6 +82,7 @@ set colorcolumn=79                              " Show vertical column
 set cursorline                                  " Highlight current line
 set expandtab                                   " Expand tabs to spaces
 set formatoptions=qrn1                          " http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
+set hidden                                      " allow buffers to be hidden
 set history=1024                                " History size
 set hlsearch                                    " Highlight matches to recent searches
 set ignorecase                                  " Ignore case when searching

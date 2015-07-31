@@ -94,6 +94,8 @@ set nocompatible                                " Not compatible w/ vi
 set number                                      " Display line numbers
 set ruler                                       " Show line and column number of cursor
 set scrolloff=3                                 " Always show 3 lines around cursor
+set splitright                                  " open new vertical buffers on the right...
+set splitbelow                                  " ...and horizontal ones below
 set showmatch                                   " Show matching braces
 set smartcase                                   " Turn case sensitive search back on in certain cases
 set sw=2 sts=2 ts=2                             " 2 spaces

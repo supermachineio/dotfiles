@@ -46,7 +46,6 @@ Plugin 'plasticboy/vim-markdown'                    " markdown support; requires
 Plugin 'rking/ag.vim'                               " plugin for the_silver_searcher
 Plugin 'scrooloose/nerdcommenter'                   " quickly (un)comment lines
 Plugin 'scrooloose/nerdtree'                        " A tree explorer plugin
-Plugin 'scrooloose/syntastic'                       " Syntax checking hacks
 Plugin 'sjl/vitality.vim'                           " Make Vim play nicely with iTerm 2 and tmux
 Plugin 'tomtom/tlib_vim'                            " vim-snipmate dependency
 Plugin 'tpope/vim-abolish'                          " easily search for, substitute, and abbreviate multiple variants of a word
@@ -105,6 +104,7 @@ set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set t_Co=256                                    " Use 256 colors
 set textwidth=0                                 " Do not break lines
+set ttimeoutlen=100                             " Without this entering normal mode takes forever
 set wildmenu                                    " Autocomplete filenames
 set wildmode=list:longest,full                  " Show completions as list with longest match then full matches
 set wildignore+=tags                            " Ignore certain files/folders when globbing
@@ -149,7 +149,6 @@ let g:solarized_termcolors=256
 let g:solarized_visibility="high"
 let g:solarized_contrast="high"
 
-let g:syntastic_enable_signs=1
 
 let g:testify_launcher = "Dispatch "
 let g:testify_runners = {

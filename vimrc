@@ -64,6 +64,7 @@ Plugin 'tpope/vim-unimpaired'                       " pairs of handy bracket map
 Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this is latest and greatest
 Plugin 'vim-scripts/regreplop.vim'                  " operator to replace motion/visual with a register
 Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
+Plugin 'lambdatoast/elm.vim'                        " elm syntax highlighting
 
 call vundle#end()
 

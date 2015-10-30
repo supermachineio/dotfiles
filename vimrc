@@ -216,9 +216,6 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>""
 " Quickly switch to alternate file
 nnoremap <Leader><Leader> <c-^>
 
-" Open Fugitive status
-nnoremap <Leader>g :Gstatus<CR>
-
 " Auto-indent whole file
 nmap <leader>=  gg=G``
 
@@ -252,9 +249,6 @@ map <F8> :TagbarToggle<CR>
 
 " Regenerate ctags and cscope.out using starscope gem
 map <F9> :StarscopeUpdate<cr>
-
-" Map ,g to Gblame
-map <leader>g :Gblame<CR>
 
 " Call the 'alternative' script
 nnoremap <Leader>A :Alternative<CR>

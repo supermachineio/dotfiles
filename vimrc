@@ -209,6 +209,9 @@ map <leader>/ <plug>NERDCommenterToggle
 " Copy current file path to system pasteboard
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
+" Delete focused buffer without losing split
+nnoremap <C-c> :bp\|bd #<CR>
+
 " Press Space to turn off highlighting and clear any message already
 " displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>""

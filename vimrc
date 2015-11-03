@@ -65,6 +65,7 @@ Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this i
 Plugin 'vim-scripts/regreplop.vim'                  " operator to replace motion/visual with a register
 Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
 Plugin 'lambdatoast/elm.vim'                        " elm syntax highlighting
+Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily
 
 call vundle#end()
 

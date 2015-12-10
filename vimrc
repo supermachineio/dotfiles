@@ -66,6 +66,7 @@ Plugin 'vim-scripts/regreplop.vim'                  " operator to replace motion
 Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
 Plugin 'lambdatoast/elm.vim'                        " elm syntax highlighting
 Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily
+Plugin 'aperezdc/vim-template'                     " templates by file type
 
 call vundle#end()
 
@@ -160,6 +161,8 @@ let g:testify_runners = {
 let g:auto_save = 1
 let g:auto_save_no_updatetime = 1
 let g:auto_save_in_insert_mode = 0
+
+let g:templates_directory = "~/.vim/templates/"
 
 "#############################################################################
 " Keymaps

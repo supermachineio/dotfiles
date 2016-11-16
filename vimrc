@@ -22,7 +22,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'                          " let Vundle manage Vundle, required
 
 Plugin 'AndrewRadev/writable_search.vim'            " Grep for something, then write the original files directly through the search results
-Plugin 'Blackrush/vim-gocode'                       " Golang bundle
+"Plugin 'Blackrush/vim-gocode'                       " Golang bundle
 Plugin 'DataWraith/auto_mkdir'                      " Allows you to save files into directories that do not exist yet
 Plugin 'JazzCore/ctrlp-cmatcher'                    " CtrlP C matching extension
 Plugin 'MarcWeber/vim-addon-mw-utils'               " vim-snipmate dependency
@@ -47,6 +47,7 @@ Plugin 'rking/ag.vim'                               " plugin for the_silver_sear
 Plugin 'scrooloose/nerdcommenter'                   " quickly (un)comment lines
 Plugin 'scrooloose/nerdtree'                        " A tree explorer plugin
 Plugin 'sjl/vitality.vim'                           " Make Vim play nicely with iTerm 2 and tmux
+Plugin 'slim-template/vim-slim.git'
 Plugin 'tomtom/tlib_vim'                            " vim-snipmate dependency
 Plugin 'tpope/vim-abolish'                          " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-bundler'                          " makes source navigation of bundled gems easier
@@ -294,6 +295,9 @@ autocmd BufRead,BufNewFile *.json set filetype=javascript
 
 " Highlight Jasmine fixture files as HTML
 autocmd BufRead,BufNewFile *.jasmine_fixture set filetype=html
+
+" Highlight Slim files
+autocmd BufRead,BufNewFile *.slim set filetype=slim
 
 " When viewing a git tree or blob, quickly move up to view parent
 autocmd User fugitive

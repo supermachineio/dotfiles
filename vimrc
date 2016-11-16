@@ -68,6 +68,7 @@ Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes
 Plugin 'elmcast/elm-vim'                            " elm syntax highlighting and utilities
 Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily
 Plugin 'aperezdc/vim-template'                     " templates by file type
+Plugin 'wfleming/vim-codeclimate'
 
 call vundle#end()
 
@@ -260,6 +261,11 @@ map <F8> :TagbarToggle<CR>
 
 " Regenerate ctags and cscope.out using starscope gem
 map <F9> :StarscopeUpdate<cr>
+
+" CodeClimate Plugin
+nmap <Leader>cca :CodeClimateAnalyzeProject<CR>
+nmap <Leader>cco :CodeClimateAnalyzeOpenFiles<CR>
+nmap <Leader>ccf :CodeClimateAnalyzeCurrentFile<CR>
 
 " Call the 'alternative' script
 nnoremap <Leader>A :Alternative<CR>

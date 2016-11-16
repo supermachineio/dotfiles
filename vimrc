@@ -172,6 +172,8 @@ let g:auto_save_in_insert_mode = 0
 
 let g:templates_directory = "~/.vim/templates/"
 
+let g:vim_markdown_folding_disabled = 1
+
 "#############################################################################
 " Keymaps
 "#############################################################################

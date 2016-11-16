@@ -137,12 +137,14 @@ let maplocalleader = ";"
 "#############################################################################
 let g:airline_powerline_fonts = 1
 
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+"let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:ctrlp_user_command = {
     \ 'types': {
     \   1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others']
     \ },
     \ 'fallback': 'ag %s -l --nocolor -g ""' }
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
 let NERDSpaceDelims = 1
 

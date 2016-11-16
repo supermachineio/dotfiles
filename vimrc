@@ -157,10 +157,14 @@ let g:solarized_visibility="high"
 let g:solarized_contrast="high"
 
 
+"let g:testify_launcher = "Dispatch "
+"let g:testify_runners = {
+"            \ 'cucumber': 'zeus cucumber ',
+"            \ 'rspec': 'zeus rspec ' }
 let g:testify_launcher = "Dispatch "
 let g:testify_runners = {
-            \ 'cucumber': 'zeus cucumber ',
-            \ 'rspec': 'zeus rspec ' }
+            \ 'cucumber': 'cucumber ',
+            \ 'rspec': 'rspec ' }
 
 let g:auto_save = 1
 let g:auto_save_no_updatetime = 1
@@ -268,13 +272,13 @@ nmap <Leader>cco :CodeClimateAnalyzeOpenFiles<CR>
 nmap <Leader>ccf :CodeClimateAnalyzeCurrentFile<CR>
 
 " Call the 'alternative' script
-nnoremap <Leader>A :Alternative<CR>
+"nnoremap <Leader>A :Alternative<CR>
 
 "Copy yml key under the cursor"
-nnoremap <Leader>k :call YMLToKey()<CR>
-function YMLToKey()
-  execute '!~/Dropbox/developer_stuff/bin/yml_to_key key ' . expand('%:p') . ":" . line(".") . ' | xargs echo -n | pbcopy'
-endfunction
+"nnoremap <Leader>k :call YMLToKey()<CR>
+"function YMLToKey()
+"  execute '!~/Dropbox/developer_stuff/bin/yml_to_key key ' . expand('%:p') . ":" . line(".") . ' | xargs echo -n | pbcopy'
+"endfunction
 
 "#############################################################################
 " Autocommands

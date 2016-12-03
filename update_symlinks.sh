@@ -4,7 +4,7 @@
 # are in the same directory as this file.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-DOTFILES=( gvimrc vimrc vim tmux.conf)
+DOTFILES=( gvimrc vimrc vim tmux.conf zsh zshrc)
 
 for dotfile in "${DOTFILES[@]}"
 do

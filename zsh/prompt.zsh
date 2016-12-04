@@ -11,7 +11,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 # show VI insert mode
 function zle-line-init zle-keymap-select {
   VIM_MODE="%{$fg[yellow]%} [% NORMAL]% %{$reset_color%}"
-  RPS1="${${KEYMAP/vicmd/$VIM_MODE}/(main|viins)/} $EPS1"
+  RPS1="${${KEYMAP/vicmd/$VIM_MODE}/(main|viins)/} %W %* $EPS1"
   zle reset-prompt
 }
 

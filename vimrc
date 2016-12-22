@@ -56,6 +56,7 @@ Plugin 'tpope/vim-rake'                             " makes Ruby project navigat
 Plugin 'tpope/vim-repeat'                           " Enable repeating supported plugin maps with '.'
 Plugin 'tpope/vim-surround'                         " makes working w/ quotes, braces,etc. easier
 Plugin 'tpope/vim-unimpaired'                       " pairs of handy bracket mappings
+Plugin 'twerth/ir_black'                            " ir_black colorscheme
 Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this is latest and greatest
 Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
 Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily

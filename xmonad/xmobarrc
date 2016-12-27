@@ -1,0 +1,28 @@
+Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "#737373"
+       , position = TopW L 95
+       , commands = [ Run Battery [ "--template" , "Batt: <acstatus>"
+                                  , "--Low"      , "10"        -- units: %
+                                  , "--High"     , "80"        -- units: %
+                                  , "--low"      , "darkred"
+                                  , "--normal"   , "#ffffff"
+                                  , "--high"     , "#ffffff"
+
+                                  , "--" -- battery specific options
+                                    -- discharging status
+                                  , "-o", "<left>% (<timeleft>)"
+                                    -- AC "on" status
+                                  , "-O", "<fc=#dAA520>Charging</fc>"
+                                    -- charged status
+                                  , "-i", "<fc=#006000>Charged</fc>"
+                                  ] 50
+                    , Run Date "%F (%a) %T" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ <fc=#ffffff>%battery% | %date%</fc>"
+       }

@@ -1,0 +1,46 @@
+[user]
+  name = Todd Mohney
+  email = toddmohney@gmail.com
+  signingkey = 719AF55A93125AFF
+[log]
+  abbrevCommit = true
+[format]
+  pretty = format:"%h %C(yellow)%ci%Creset %Cgreen%an%Creset | %s"
+[push]
+  default = current
+[alias]
+  br = branch
+  ci = commit
+  co = checkout
+  ctags = !.git/hooks/ctags
+  di = diff
+  fixup = commit --fixup
+  lg = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative
+  slog ="!f() { git log --color=always -p -S "${@:1}" ${@:2:100} | less -Rp "${@:1}"; }; f"
+  squash = commit --squash
+  st = status
+  please = push --force-with-lease
+[apply]
+  whitespace = nowarn
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = auto
+[branch]
+  autosetupmerge = true
+[core]
+  pager = less -FXRS -x2
+  editor = vim
+  recomposeunicode = false
+[rebase]
+  autosquash = true
+[pull]
+  rebase
+[init]
+  templatedir = ~/.git_template
+[commit]
+  gpgsign = true
+[gpg]
+  program = gpg2

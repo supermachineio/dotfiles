@@ -26,3 +26,7 @@ alias dc-down="docker-compose down"
 alias dc-reset-all="docker-compose down && docker volume rm harness_{kafka,zookeeper,redis,repos,tokumx}"
 alias dc-rails-c="docker-compose exec app bundle exec rails c"
 alias dc-logs="docker-compose logs -f"
+
+alias news="newsbeuter -C $HOME/.newsbeuter/config -u $HOME/.newsbeuter/urls"
+
+alias byebye="systemctl suspend"

@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.Volume
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Fullscreen
@@ -34,9 +35,10 @@ instance UrgencyHook LibNotifyUrgencyHook where
 myManageHook = composeAll
     [ className =? "Chromium"       --> doShift "[web]"
     , className =? "Google-chrome"  --> doShift "[web]"
+    , className =? "Firefox"        --> doShift "[web2]"
     , className =? "Slack"          --> doShift "[comm]"
+    , className =? "Spotify"        --> doShift "[spotify]"
     , className =? "Enpass"         --> doFloat
-    , className =? "Gimp"           --> doFloat
     ]
 
 ------------------------------------------------------------------------
@@ -56,7 +58,7 @@ main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
 
     xmonad $ withUrgencyHook LibNotifyUrgencyHook $ def
-        { workspaces = ["[dev]","[web]","[comm]","[spotify]","[tmp]","[6]","[7]","[8]","[9]"]
+        { workspaces = ["[dev]","[dev2]","[web]","[web2]","[comm]","[spotify]","[7]","[8]","[9]"]
         , manageHook = manageDocks <+> myManageHook
         , layoutHook = avoidStruts  $  layoutHook def
         , logHook = dynamicLogWithPP xmobarPP
@@ -70,6 +72,9 @@ main = do
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
-        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-        , ((0, xK_Print), spawn "scrot")
+        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s -e 'mv $f ~/Pictures/'")
+        , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures/'")
+        , ((0, 0x1008ff11), lowerVolume 2 >> return ())
+        , ((0, 0x1008ff12), toggleMute >> return ())
+        , ((0, 0x1008ff13), raiseVolume 2 >> return ())
         ]

@@ -5,4 +5,4 @@ export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # start the agent
-# gpgconf --launch gpg-agent
+gpgconf --launch gpg-agent

@@ -25,18 +25,16 @@ Plugin 'AndrewRadev/writable_search.vim'            " Grep for something, then w
 Plugin 'DataWraith/auto_mkdir'                      " Allows you to save files into directories that do not exist yet
 Plugin 'JazzCore/ctrlp-cmatcher'                    " CtrlP C matching extension
 Plugin 'airblade/vim-gitgutter'                     " shows a git diff in the gutter (sign column) and stages/reverts hunks
-Plugin 'altercation/vim-colors-solarized'           " Solarized color theme
 Plugin 'bling/vim-airline'                          " lean & mean status/tabline for vim that's light as air
-Plugin 'chazy/cscope_maps'                          " cscope keyboard mappings
-Plugin 'chrisbra/csv.vim'                           " Filetype plugin for csv files
+" Plugin 'chazy/cscope_maps'                          " cscope keyboard mappings
+" Plugin 'chrisbra/csv.vim'                           " Filetype plugin for csv files
 Plugin 'elmcast/elm-vim'                            " elm syntax highlighting and utilities
-Plugin 'ervandew/supertab'                          " Perform all your vim insert mode completions with Tab
-Plugin 'godlygeek/csapprox'                         " dependency for Solarized
+" Plugin 'ervandew/supertab'                          " Perform all your vim insert mode completions with Tab
 Plugin 'godlygeek/tabular'                          " dependency of vim-markdown
 Plugin 'kana/vim-textobj-user'                      " dependency for rubyblock
 Plugin 'kien/ctrlp.vim'                             " Fuzzy file, buffer, mru, tag, etc finder
-Plugin 'majutsushi/tagbar'                          " displays tags in a window, ordered by scope
-Plugin 'mustache/vim-mustache-handlebars'           " mustache and handlebars mode
+" Plugin 'majutsushi/tagbar'                          " displays tags in a window, ordered by scope
+" Plugin 'mustache/vim-mustache-handlebars'           " mustache and handlebars mode
 Plugin 'nelstrom/vim-textobj-rubyblock'             " custom text object for selecting Ruby blocks
 Plugin 'pangloss/vim-javascript'                    " Vastly improved Javascript indentation and syntax support
 Plugin 'plasticboy/vim-markdown'                    " markdown support; requires godlygeek/tabular
@@ -45,22 +43,27 @@ Plugin 'scrooloose/nerdcommenter'                   " quickly (un)comment lines
 Plugin 'scrooloose/nerdtree'                        " A tree explorer plugin
 Plugin 'sjl/vitality.vim'                           " Make Vim play nicely with iTerm 2 and tmux
 Plugin 'slim-template/vim-slim.git'                 " Makes working with Slim templates tolerable
-Plugin 'tpope/vim-abolish'                          " easily search for, substitute, and abbreviate multiple variants of a word
+" Plugin 'tpope/vim-abolish'                          " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-bundler'                          " makes source navigation of bundled gems easier
-Plugin 'tpope/vim-cucumber'                         " provides syntax highlightling, indenting, and a filetype plugin
+" Plugin 'tpope/vim-cucumber'                         " provides syntax highlightling, indenting, and a filetype plugin
 Plugin 'tpope/vim-endwise'                          " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 Plugin 'tpope/vim-fugitive'                         " Git plugin
 Plugin 'tpope/vim-haml'                             " HAML support
 Plugin 'tpope/vim-rails'                            " Rails helpers
-Plugin 'tpope/vim-rake'                             " makes Ruby project navigation easier for non-Rails projects
+" Plugin 'tpope/vim-rake'                             " makes Ruby project navigation easier for non-Rails projects
 Plugin 'tpope/vim-repeat'                           " Enable repeating supported plugin maps with '.'
 Plugin 'tpope/vim-surround'                         " makes working w/ quotes, braces,etc. easier
 Plugin 'tpope/vim-unimpaired'                       " pairs of handy bracket mappings
-Plugin 'twerth/ir_black'                            " ir_black colorscheme
 Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this is latest and greatest
 Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
 Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily
 Plugin 'wfleming/vim-codeclimate'
+
+" Colorthemes
+Plugin 'altercation/vim-colors-solarized'           " Solarized color theme
+Plugin 'flazz/vim-colorschemes'
+Plugin 'philpl/vim-adventurous'
+Plugin 'godlygeek/csapprox'                         " dependency for Solarized
 
 call vundle#end()
 
@@ -75,9 +78,10 @@ endif
 set autoread                                    " Detect file changes refresh buffer
 set background=dark                             " Dark colored background
 set backspace=indent,eol,start                  " Backspace of newlines
-set colorcolumn=79                              " Show vertical column
+set colorcolumn=80                              " Show vertical column
 set cursorline                                  " Highlight current line
 set expandtab                                   " Expand tabs to spaces
+set encoding=utf-8                              " Expand tabs to spaces
 set formatoptions=qrn1                          " http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
 set hidden                                      " allow buffers to be hidden
 set history=1024                                " History size
@@ -90,7 +94,7 @@ set listchars=tab:»·,trail:·                    " Show tabs and trailing whit
 set nocompatible                                " Not compatible w/ vi
 set number                                      " Display line numbers
 set ruler                                       " Show line and column number of cursor
-set scrolloff=3                                 " Always show 3 lines around cursor
+set scrolloff=5                                 " Always show 3 lines around cursor
 set splitright                                  " open new vertical buffers on the right...
 set splitbelow                                  " ...and horizontal ones below
 set showmatch                                   " Show matching braces
@@ -129,7 +133,7 @@ let maplocalleader = ";"
 "#############################################################################
 " Plugin configuration
 "#############################################################################
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 let g:ctrlp_user_command = {
     \ 'types': {
@@ -237,10 +241,10 @@ vnoremap Q :norm @q<cr>
 map <F2> :set paste!<CR>
 
 " Toggle TagBar
-map <F8> :TagbarToggle<CR>
+" map <F8> :TagbarToggle<CR>
 
 " Regenerate ctags and cscope.out using starscope gem
-map <F9> :StarscopeUpdate<cr>
+" map <F9> :StarscopeUpdate<cr>
 
 " CodeClimate Plugin
 nmap <Leader>cca :CodeClimateAnalyzeProject<CR>
@@ -257,7 +261,7 @@ function! StripTrailingWhitespace()
   %s/\s\+$//e
   call setpos('.', save_cursor)
 endfunction
-autocmd BufWritePre *.rb,*.yml,*.js,*.css,*.less,*.sass,*.scss,*.html,*.xml,*.erb,*.haml,*.feature call StripTrailingWhitespace()
+autocmd BufWritePre *.hs,*.elm,*.rb,*.yml,*.js,*.css,*.less,*.sass,*.scss,*.html,*.xml,*.erb,*.haml,*.feature call StripTrailingWhitespace()
 
 " Highlight Ruby files
 au BufRead,BufNewFile *.thor set filetype=ruby
@@ -288,4 +292,5 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Word wrap without line breaks for text files
 au BufRead,BufNewFile *.txt,*.md,*.markdown,*.rdoc set wrap linebreak nolist textwidth=0 wrapmargin=0
 
-colorscheme solarized
+" colorscheme solarized
+colorscheme adventurous

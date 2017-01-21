@@ -7,7 +7,7 @@ xrdb -merge .Xresources
 # Set up an icon tray
 
 trayer \
-  --edge top \
+  --edge bottom \
   --align right \
   --SetDockType true \
   --SetPartialStrut true \

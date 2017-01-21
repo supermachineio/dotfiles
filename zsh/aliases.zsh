@@ -15,8 +15,9 @@ alias tmuxnew="tmux new-session -s"
 # usage: `untar /path/to/tarball`
 alias untar="tar -xvf"
 
-
 alias blackbox_register_all_env_files="find . -type f -name '*.env' -print0 2>/dev/null | xargs -0 blackbox_register_new_file"
+
+alias rake="noglob rake"
 
 alias dc-mongo="docker-compose exec tokumx mongo code_climate_development"
 alias dc-ps="docker-compose ps"

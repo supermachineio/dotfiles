@@ -55,7 +55,7 @@ Plugin 'tpope/vim-repeat'                           " Enable repeating supported
 Plugin 'tpope/vim-surround'                         " makes working w/ quotes, braces,etc. easier
 Plugin 'tpope/vim-unimpaired'                       " pairs of handy bracket mappings
 Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this is latest and greatest
-Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
+" Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
 Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily
 Plugin 'wfleming/vim-codeclimate'
 
@@ -99,6 +99,7 @@ set splitright                                  " open new vertical buffers on t
 set splitbelow                                  " ...and horizontal ones below
 set showmatch                                   " Show matching braces
 set smartcase                                   " Turn case sensitive search back on in certain cases
+set smartindent
 set sw=2 sts=2 ts=2                             " 2 spaces
 set swapfile                                    " Keep swapfiles
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp

@@ -64,6 +64,7 @@ Plugin 'altercation/vim-colors-solarized'           " Solarized color theme
 Plugin 'flazz/vim-colorschemes'
 Plugin 'philpl/vim-adventurous'
 Plugin 'godlygeek/csapprox'                         " dependency for Solarized
+Plugin 'tomlion/vim-solidity'
 
 call vundle#end()
 
@@ -271,6 +272,8 @@ au BufRead,BufNewFile Gemfile* set filetype=ruby
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
 au BufRead,BufNewFile soloistrc set filetype=ruby
 au BufRead,BufNewFile *_spec.rb set syntax=ruby
+au BufRead,BufNewFile Jenkinsfile set syntax=groovy
+au BufRead,BufNewFile Dockerfile* set syntax=sh
 
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
@@ -293,5 +296,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Word wrap without line breaks for text files
 au BufRead,BufNewFile *.txt,*.md,*.markdown,*.rdoc set wrap linebreak nolist textwidth=0 wrapmargin=0
 
-" colorscheme solarized
-colorscheme adventurous
+" Auto build hpack when package.yaml is modified
+" autocmd BufWritePost package.yaml silent !hpack --silent
+
+colorscheme solarized
+" colorscheme adventurous

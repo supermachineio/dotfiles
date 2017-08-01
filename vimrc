@@ -66,6 +66,11 @@ Plugin 'philpl/vim-adventurous'
 Plugin 'godlygeek/csapprox'                         " dependency for Solarized
 Plugin 'tomlion/vim-solidity'
 
+" vim-snippets helper
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
 call vundle#end()
 
 if 1 == need_to_install_plugins
@@ -158,6 +163,14 @@ let g:auto_save_in_insert_mode = 0
 let g:templates_directory = "~/.vim/templates/"
 
 let g:vim_markdown_folding_disabled = 1
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 "#############################################################################
 " Keymaps

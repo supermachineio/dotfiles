@@ -1,5 +1,4 @@
-alias ls='ls -F --color=auto'
-alias ll='ls -AFhl'
+alias ll='ls -AFhl --color=auto'
 
 alias gitlog="git log -n 10"
 alias vim-install-plugins="vim +PluginInstall! +qall"
@@ -23,7 +22,7 @@ alias rake="noglob rake"
 alias dc-ps="docker-compose ps"
 alias dc-up="docker-compose up -d"
 alias dc-down="docker-compose kill && docker-compose down --remove-orphans"
-alias dc-logs="docker-compose logs -f"
+alias dc-logs="docker-compose logs -f --tail=250"
 
 alias news="newsbeuter -C $HOME/.newsbeuter/config -u $HOME/.newsbeuter/urls"
 

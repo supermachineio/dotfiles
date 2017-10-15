@@ -4,9 +4,9 @@ alias gitlog="git log -n 10"
 alias vim-install-plugins="vim +PluginInstall! +qall"
 alias zshconfig="vim ~/.zshrc"
 
-alias display-home="xrandr --output DP1 --mode 2560x1440 --output eDP1 --off"
-alias display-work="xrandr --output DP1 --mode 2560x1440 --output eDP1 --off"
-alias display-laptop="xrandr --output eDP1 --mode 1920x1080 --output DP1 --off --output HDMI1 --off"
+alias display-home="xrandr --output DP-1 --mode 2560x1440 --output eDP-1 --off"
+alias display-work="xrandr --output DP-1 --mode 2560x1440 --output eDP-1 --off"
+alias display-laptop="xrandr --output eDP-1 --mode 1920x1080 --output DP-1 --off --output HDMI-1 --off"
 
 # usage: `sshkeygen email@address.com"
 alias sshkeygen="ssh-keygen -t rsa -b 4096 -C"

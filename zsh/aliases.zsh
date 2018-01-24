@@ -27,3 +27,5 @@ alias dc-logs="docker-compose logs -f --tail=250"
 alias news="newsbeuter -C $HOME/.newsbeuter/config -u $HOME/.newsbeuter/urls"
 
 alias byebye="systemctl suspend"
+
+alias xclip="xclip -selection c"

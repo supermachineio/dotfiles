@@ -1,20 +1,22 @@
 ! Font options - ~/.fonts.conf seems to override this
 ! Resolution for Xft in dots per inch (e.g. 96)
-!Xft.dpi:       128
+Xft.dpi:       96
 ! Type of subpixel antialiasing (none, rgb, bgr, vrgb or vbgr)
-!Xft.rgba:      rgba
-!Xft.antialias: 1
-!Xft.hinting:   1
-!Xft.autohint:  0
+Xft.rgba:      rgb
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.autohint:  1
+Xft.lcdfilter: lcddefault
 ! What degree of hinting to use (hintnone, hintslight, hintmedium, or hintfull)
-!Xft.hintstyle: hintslight
+Xft.hintstyle: hintslight
+
 
 ! xterm*faceName: terminus-12
 ! URxvt*font:     terminus-12
 ! URxvt*boldFont: terminus-12
 
 #define FONTSIZE 12
-xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=128
+xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
 !URxvt*font:     xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
 !URxvt*boldFont: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=96
 
@@ -23,13 +25,15 @@ xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohi
 
 #define WINDOWGEOMETRY 90x20
 ! xterm
+xterm*loginShell:         true
 xterm*dynamiccolors:      true
 xterm*utf8:               2
 xterm*geometry:           WINDOWGEOMETRY
-xterm*visualBell:         off
 xterm*highlightSelection: true
 xterm*selectToClipboard:  true
-!xterm*background:      lightblack
+xterm*background:         black
+xterm*bellIsUrgent:       true
+xterm*visualBell:         off
 !xterm*foreground:      lightblue
 !xterm*colorMode:       on
 !xterm*colorBD:         lightcyan

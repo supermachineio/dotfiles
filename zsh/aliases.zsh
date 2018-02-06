@@ -6,6 +6,7 @@ alias zshconfig="vim ~/.zshrc"
 
 alias display-home="xrandr --output DP-1 --mode 2560x1440 --output eDP-1 --off"
 alias display-work="xrandr --output DP-1 --mode 2560x1440 --output eDP-1 --off"
+alias display-hdmi="xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --off"
 alias display-laptop="xrandr --output eDP-1 --mode 1920x1080 --dpi 128 --output DP-1 --off --output HDMI-1 --off"
 
 # usage: `sshkeygen email@address.com"
@@ -29,3 +30,4 @@ alias news="newsbeuter -C $HOME/.newsbeuter/config -u $HOME/.newsbeuter/urls"
 alias byebye="systemctl suspend"
 
 alias xclip="xclip -selection c"
+alias esclock="xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"

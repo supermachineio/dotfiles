@@ -36,8 +36,8 @@ fi
 
 #xset b off
 
-eval `gpg-agent --daemon`
-eval `ssh-agent --daemon`
+# eval `gpg-agent --daemon`
+# eval `ssh-agent --daemon`
 
 exec xmonad
 

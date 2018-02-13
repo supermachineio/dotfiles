@@ -11,11 +11,3 @@ function docker_cleanup_containers() {
     cut -d ' ' -f 1 | \
     xargs docker rm
 }
-
-function blockbuild() {
-  docker-compose kill; \
-    docker-compose down; \
-    sudo rm -rf tmp && \
-    ./install local-to-docker && \
-    stratoHost=nginx genesisBlock="$(cat gb.json)" ./strato-admin.sh --run-local
-}

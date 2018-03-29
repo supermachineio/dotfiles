@@ -1,4 +1,4 @@
-alias ll='ls -AFhl --color=auto'
+alias ll='ls -AFhlt --color=auto'
 
 alias gitlog="git log -n 10"
 alias vim-install-plugins="vim +PluginInstall! +qall"
@@ -31,3 +31,6 @@ alias byebye="systemctl suspend"
 
 alias xclip="xclip -selection c"
 alias esclock="xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
+alias resetlock="xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'"
+
+alias settty="gpg-connect-agent updatestartuptty /bye"

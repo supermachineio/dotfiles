@@ -1,4 +1,4 @@
-alias ll='ls -AFhlt --color=auto'
+alias ll='ls -AFhl --color=auto'
 
 alias gitlog="git log -n 10"
 alias vim-install-plugins="vim +PluginInstall! +qall"

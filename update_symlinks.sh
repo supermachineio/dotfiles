@@ -29,3 +29,5 @@ do
         echo " ...${symlink_path} re-linked"
     fi
 done
+
+cp -R ./shell-scripts ~/shell-scripts

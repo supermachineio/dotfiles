@@ -6,6 +6,13 @@
 filetype off
 
 let need_to_install_plugins=0
+let base16colorspace=256
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_user_command = {
+    \ 'types': {
+    \   1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others']
+    \ },
+    \ 'fallback': 'ag %s -l --nocolor -g ""' }
 
 " Bootstrap Vundle if it's not installed
 if empty(system("grep lazy_load ~/.vim/bundle/Vundle.vim/autoload/vundle.vim"))
@@ -15,6 +22,12 @@ if empty(system("grep lazy_load ~/.vim/bundle/Vundle.vim/autoload/vundle.vim"))
     let need_to_install_plugins=1
 endif
 
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
+
 set runtimepath+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -22,19 +35,26 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'                          " let Vundle manage Vundle, required
 
 Plugin 'AndrewRadev/writable_search.vim'            " Grep for something, then write the original files directly through the search results
+Plugin 'Blackrush/vim-gocode'                       " Golang bundle
 Plugin 'DataWraith/auto_mkdir'                      " Allows you to save files into directories that do not exist yet
-Plugin 'JazzCore/ctrlp-cmatcher'                    " CtrlP C matching extension
+Plugin 'MarcWeber/vim-addon-mw-utils'               " vim-snipmate dependency
 Plugin 'airblade/vim-gitgutter'                     " shows a git diff in the gutter (sign column) and stages/reverts hunks
+Plugin 'altercation/vim-colors-solarized'           " Solarized color theme
+" Plugin 'challenger-deep-theme/vim', { 'name': 'challenger-deep' }
+Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'bling/vim-airline'                          " lean & mean status/tabline for vim that's light as air
-" Plugin 'chazy/cscope_maps'                          " cscope keyboard mappings
-" Plugin 'chrisbra/csv.vim'                           " Filetype plugin for csv files
-Plugin 'elmcast/elm-vim'                            " elm syntax highlighting and utilities
-" Plugin 'ervandew/supertab'                          " Perform all your vim insert mode completions with Tab
+" Plugin 'itchyny/lightline.vim'
+Plugin 'chazy/cscope_maps'                          " cscope keyboard mappings
+Plugin 'chrisbra/csv.vim'                           " Filetype plugin for csv files
+Plugin 'ervandew/supertab'                          " Perform all your vim insert mode completions with Tab
+Plugin 'garbas/vim-snipmate'                        " handy code snippets
+Plugin 'godlygeek/csapprox'                         " dependency for Solarized
 Plugin 'godlygeek/tabular'                          " dependency of vim-markdown
+Plugin 'honza/vim-snippets'                         " vim-snipmate default snippets
 Plugin 'kana/vim-textobj-user'                      " dependency for rubyblock
-Plugin 'kien/ctrlp.vim'                             " Fuzzy file, buffer, mru, tag, etc finder
-" Plugin 'majutsushi/tagbar'                          " displays tags in a window, ordered by scope
-" Plugin 'mustache/vim-mustache-handlebars'           " mustache and handlebars mode
+Plugin 'ctrlpvim/ctrlp.vim'                             " Fuzzy file, buffer, mru, tag, etc finder
+Plugin 'majutsushi/tagbar'                          " displays tags in a window, ordered by scope
+Plugin 'mustache/vim-mustache-handlebars'           " mustache and handlebars mode
 Plugin 'nelstrom/vim-textobj-rubyblock'             " custom text object for selecting Ruby blocks
 Plugin 'pangloss/vim-javascript'                    " Vastly improved Javascript indentation and syntax support
 Plugin 'plasticboy/vim-markdown'                    " markdown support; requires godlygeek/tabular
@@ -42,34 +62,33 @@ Plugin 'rking/ag.vim'                               " plugin for the_silver_sear
 Plugin 'scrooloose/nerdcommenter'                   " quickly (un)comment lines
 Plugin 'scrooloose/nerdtree'                        " A tree explorer plugin
 Plugin 'sjl/vitality.vim'                           " Make Vim play nicely with iTerm 2 and tmux
-Plugin 'slim-template/vim-slim.git'                 " Makes working with Slim templates tolerable
-" Plugin 'tpope/vim-abolish'                          " easily search for, substitute, and abbreviate multiple variants of a word
+Plugin 'tomtom/tlib_vim'                            " vim-snipmate dependency
+Plugin 'tpope/vim-abolish'                          " easily search for, substitute, and abbreviate multiple variants of a word
 Plugin 'tpope/vim-bundler'                          " makes source navigation of bundled gems easier
-" Plugin 'tpope/vim-cucumber'                         " provides syntax highlightling, indenting, and a filetype plugin
+Plugin 'tpope/vim-cucumber'                         " provides syntax highlightling, indenting, and a filetype plugin
+Plugin 'tpope/vim-dispatch'                         " Asynchronous build and test dispatcher
 Plugin 'tpope/vim-endwise'                          " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 Plugin 'tpope/vim-fugitive'                         " Git plugin
 Plugin 'tpope/vim-haml'                             " HAML support
+Plugin 'tpope/vim-projectionist'                    " project configuration
 Plugin 'tpope/vim-rails'                            " Rails helpers
-" Plugin 'tpope/vim-rake'                             " makes Ruby project navigation easier for non-Rails projects
+Plugin 'tpope/vim-rake'                             " makes Ruby project navigation easier for non-Rails projects
 Plugin 'tpope/vim-repeat'                           " Enable repeating supported plugin maps with '.'
 Plugin 'tpope/vim-surround'                         " makes working w/ quotes, braces,etc. easier
 Plugin 'tpope/vim-unimpaired'                       " pairs of handy bracket mappings
 Plugin 'vim-ruby/vim-ruby'                          " packaged w/ vim but this is latest and greatest
-" Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
+Plugin 'vim-scripts/regreplop.vim'                  " operator to replace motion/visual with a register
+Plugin 'vim-scripts/vim-auto-save'                  " automatically save changes to disk
+Plugin 'elmcast/elm-vim'                            " elm syntax highlighting and utilities
 Plugin 'lmeijvogel/vim-yaml-helper'                 " navigate yaml files more easily
-Plugin 'wfleming/vim-codeclimate'
-
-" Colorthemes
-Plugin 'altercation/vim-colors-solarized'           " Solarized color theme
-Plugin 'flazz/vim-colorschemes'
-Plugin 'philpl/vim-adventurous'
-Plugin 'godlygeek/csapprox'                         " dependency for Solarized
-Plugin 'tomlion/vim-solidity'
-
-" vim-snippets helper
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plugin 'aperezdc/vim-template'                      " templates by file type
+Plugin 'leafgarland/typescript-vim'                 " Typescript syntax
+Plugin 'Quramy/tsuquyomi'                           " Typescript tools
+Plugin 'Shougo/vimproc'                             " Async command processor
+Plugin 'kchmck/vim-coffee-script'                   " Coffeescript plugin
+Plugin 'digitaltoad/vim-pug'                        " Jade/Pug syntax highlighting, indenting, and filetype
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()
 
@@ -84,10 +103,9 @@ endif
 set autoread                                    " Detect file changes refresh buffer
 set background=dark                             " Dark colored background
 set backspace=indent,eol,start                  " Backspace of newlines
-set colorcolumn=80                              " Show vertical column
+set colorcolumn=79                              " Show vertical column
 set cursorline                                  " Highlight current line
 set expandtab                                   " Expand tabs to spaces
-set encoding=utf-8                              " Expand tabs to spaces
 set formatoptions=qrn1                          " http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
 set hidden                                      " allow buffers to be hidden
 set history=1024                                " History size
@@ -100,12 +118,11 @@ set listchars=tab:»·,trail:·                    " Show tabs and trailing whit
 set nocompatible                                " Not compatible w/ vi
 set number                                      " Display line numbers
 set ruler                                       " Show line and column number of cursor
-set scrolloff=5                                 " Always show 3 lines around cursor
+set scrolloff=3                                 " Always show 3 lines around cursor
 set splitright                                  " open new vertical buffers on the right...
 set splitbelow                                  " ...and horizontal ones below
 set showmatch                                   " Show matching braces
 set smartcase                                   " Turn case sensitive search back on in certain cases
-set smartindent
 set sw=2 sts=2 ts=2                             " 2 spaces
 set swapfile                                    " Keep swapfiles
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
@@ -140,13 +157,12 @@ let maplocalleader = ";"
 "#############################################################################
 " Plugin configuration
 "#############################################################################
-" let g:airline_powerline_fonts = 1
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
 
-let g:ctrlp_user_command = {
-    \ 'types': {
-    \   1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others']
-    \ },
-    \ 'fallback': 'ag %s -l --nocolor -g ""' }
+let g:airline_powerline_fonts = 1
+" let g:lightline = { 'colorscheme': 'challenger_deep'}
 
 let NERDSpaceDelims = 1
 
@@ -156,21 +172,30 @@ let g:solarized_termcolors=256
 let g:solarized_visibility="high"
 let g:solarized_contrast="high"
 
-let g:auto_save = 1
+
+let g:testify_launcher = "Dispatch "
+
+" Override the testify launchers in ./vim/after/plugin/testify.vim
+let g:testify_runners = {
+            \ 'cucumber': 'zeus cucumber ',
+            \ 'rspec': 'zeus rspec ',
+            \ 'python': ' ./venv/bin/python -m unittest ' }
+
+let g:auto_save = 0
 let g:auto_save_no_updatetime = 1
 let g:auto_save_in_insert_mode = 0
 
 let g:templates_directory = "~/.vim/templates/"
 
-let g:vim_markdown_folding_disabled = 1
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+let g:templates_user_variables = [
+  \   ['GIT_USER', 'GetGitUser'],
+  \ ]
+function! GetGitUser()
+    execute('r!/usr/bin/git config user.name')
+    execute("s/^/# Author: /")
+    execute('r!/usr/bin/git config user.email')
+    execute("-1" . "normal J")
+endfunction
 
 "#############################################################################
 " Keymaps
@@ -202,7 +227,7 @@ nnoremap <Leader>f :CtrlP<cr>
 nnoremap <Leader>v :vs<cr>
 
 " Open Fugitive status buffer
-nnoremap <Leader>g :Gblame<CR>
+nnoremap <Leader>g :Gstatus<CR>
 
 " Open and close the quickfix window
 map <leader>qo :copen<CR>
@@ -213,14 +238,14 @@ vmap <tab> >gv
 vmap <s-tab> <gv
 
 " ctags again with gemhome added
-map <leader>rt :!ctags -R --exclude=.git --exclude=log<CR>
-map <leader>rT :!rdoc -f tags -o tags --exclude=.git --exclude=log
+map <leader>rt :!/usr/local/bin/ctags -R --exclude=.git --exclude=log * `rvm gemhome`/*<CR>
+map <leader>rT :!rdoc -f tags -o tags * `rvm gemhome` --exclude=.git --exclude=log
 
 " Comment/uncomment lines
 map <leader>/ <plug>NERDCommenterToggle
 
 " Copy current file path to system pasteboard
-map <leader>C :let @+ = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
 " Delete focused buffer without losing split
 nnoremap <C-c> :bp\|bd #<CR>
@@ -252,19 +277,28 @@ nnoremap <C-l> <C-w>l
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
+" Run tests
+map <leader>t :wa <bar> TestifyRunFocused<CR>
+nmap <leader>T :wa <bar> TestifyRunFile<CR>
+nmap <CR><CR> :wa <bar> TestifyRunFile<CR>
+
 " Toggle paste/nopaste mode
 map <F2> :set paste!<CR>
 
 " Toggle TagBar
-" map <F8> :TagbarToggle<CR>
+map <F8> :TagbarToggle<CR>
 
 " Regenerate ctags and cscope.out using starscope gem
-" map <F9> :StarscopeUpdate<cr>
+map <F9> :StarscopeUpdate<cr>
 
-" CodeClimate Plugin
-nmap <Leader>cca :CodeClimateAnalyzeProject<CR>
-nmap <Leader>cco :CodeClimateAnalyzeOpenFiles<CR>
-nmap <Leader>ccf :CodeClimateAnalyzeCurrentFile<CR>
+" Call the 'alternative' script
+nnoremap <Leader>A :Alternative<CR>
+
+"Copy yml key under the cursor"
+nnoremap <Leader>k :call YMLToKey()<CR>
+function YMLToKey()
+  execute '!~/Dropbox/developer_stuff/bin/yml_to_key key ' . expand('%:p') . ":" . line(".") . ' | xargs echo -n | pbcopy'
+endfunction
 
 "#############################################################################
 " Autocommands
@@ -276,7 +310,7 @@ function! StripTrailingWhitespace()
   %s/\s\+$//e
   call setpos('.', save_cursor)
 endfunction
-autocmd BufWritePre *.hs,*.elm,*.rb,*.yml,*.js,*.css,*.less,*.sass,*.scss,*.html,*.xml,*.erb,*.haml,*.feature call StripTrailingWhitespace()
+autocmd BufWritePre *.rb,*.yml,*.js,*.css,*.less,*.sass,*.scss,*.html,*.xml,*.erb,*.haml,*.feature call StripTrailingWhitespace()
 
 " Highlight Ruby files
 au BufRead,BufNewFile *.thor set filetype=ruby
@@ -285,17 +319,12 @@ au BufRead,BufNewFile Gemfile* set filetype=ruby
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
 au BufRead,BufNewFile soloistrc set filetype=ruby
 au BufRead,BufNewFile *_spec.rb set syntax=ruby
-au BufRead,BufNewFile Jenkinsfile set syntax=groovy
-au BufRead,BufNewFile Dockerfile* set syntax=sh
 
 " Highlight JSON files as javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 
 " Highlight Jasmine fixture files as HTML
 autocmd BufRead,BufNewFile *.jasmine_fixture set filetype=html
-
-" Highlight Slim files
-autocmd BufRead,BufNewFile *.slim set filetype=slim
 
 " When viewing a git tree or blob, quickly move up to view parent
 autocmd User fugitive
@@ -309,8 +338,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Word wrap without line breaks for text files
 au BufRead,BufNewFile *.txt,*.md,*.markdown,*.rdoc set wrap linebreak nolist textwidth=0 wrapmargin=0
 
-" Auto build hpack when package.yaml is modified
-" autocmd BufWritePost package.yaml silent !hpack --silent
-
 colorscheme solarized
-" colorscheme adventurous
+" colorscheme challenger_deep
+" colorscheme dracula

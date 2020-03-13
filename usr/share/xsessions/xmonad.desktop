@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=xmonad
-Comment=Starts an xmonad session
-# Exec=/home/toddmohney/.cabal/bin/xmonad
-Exec=/home/toddmohney/.xmonad/xmonad-session-rc
-Type=Application
-

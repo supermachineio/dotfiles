@@ -4,7 +4,7 @@
 # are in the same directory as this file.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-DOTFILES=( gitconfig git_template gvimrc pam_environment tmux.conf vimrc vim zsh zshrc)
+DOTFILES=( git_template tmux.conf vimrc )
 
 for dotfile in "${DOTFILES[@]}"
 do
@@ -29,13 +29,3 @@ do
         echo " ...${symlink_path} re-linked"
     fi
 done
-
-# setup gpg agent
-ln gpg-agent.conf ~/.gnupg/gpg-agent.conf
-
-# setup window mangaer
-ln xmonad/xmobarrc ~/.xmonad/xmobarrc
-ln xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-
-# setup X11 env
-ln Xresources ~/.Xresources
